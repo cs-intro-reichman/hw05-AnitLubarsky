@@ -173,19 +173,19 @@ public class GameOfLife {
 		return count;
 	}
 	public static void printCellValue (int[][] board, int i, int j) {
-	System.out.printf("The cell value is %3d \n",cellValue(board, i, j));			
+	System.out.printf("The cell value is %2d \n",cellValue(board, i, j));			
 	}
 
     // Prints the number of alive neigboors cells.
 	public static void printCount(int[][] board, int i, int j) {
-	System.out.printf("The number of living sells are %3d \n",count(board, i, j));			
+	System.out.printf("The number of living sells are %2d \n",count(board, i, j));			
 	}
 
 	// Prints the board. Alive and dead cells are printed as 1 and 0, respectively.
     public static void print(int[][] arr) {
 		for(int i = 1; i < arr.length-1; i++){
 			for(int j = 1; j < arr[i].length-1; j++ ){
-				System.out.printf("%3d ",arr[i][j]);
+				System.out.printf("%2d ",arr[i][j]);
 			}
 			System.out.println();
 		}		
