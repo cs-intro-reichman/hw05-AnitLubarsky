@@ -19,7 +19,7 @@ public class GameOfLife {
 		 //test1(fileName);
 		// test2(fileName, i, j);
 		 //test3(fileName, 3);
-		 play(fileName);
+		 //play(fileName);
 	}
 	
 	// Reads the data file and prints the initial board.
