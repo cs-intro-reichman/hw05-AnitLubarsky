@@ -71,6 +71,7 @@ public class GameOfLife {
 		for(int i = 1; i <= rows; i++){
 			String str = in.readLine();
 			for( int j = 0; j < str.length(); j++){
+				// #feedback - you can only check for 'x'. The board is already filled with zeros, the default number for an integer array.
 				if(str.charAt(j) == '.'){
 					board[i][j+1] = 0;
 				} else if(str.charAt(j) == 'x'){
@@ -89,6 +90,7 @@ public class GameOfLife {
 		for(int i = 1; i < board.length; i++){
 			for( int j = 1; j < board[0].length; j++){
 				newBoard[i][j] = cellValue(board, i, j);
+				// #feedback - please remove unused code before submitting.
 				//System.out.printf("cheack:cellValue = %d \n newBoard = %d ",cellValue(board, i, j), newBoard[i][j] );
 
 			}
@@ -106,6 +108,7 @@ public class GameOfLife {
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
 	// Uses the count(board,i,j) function to count the number of alive neighbors.
 	public static int cellValue(int[][] board, int i, int j) {
+		// #feedback - to make the program more efficient, it is better to call count once and store it in a variable.
 		if(board[i][j] == 1 && count(board, i, j) < 2){
 			return 0;
 		} else if(board[i][j] == 1 && (count(board, i, j) == 2 || count(board, i, j) == 3)){
@@ -123,11 +126,15 @@ public class GameOfLife {
 	// Assumes that i is at least 1 and at most the number of rows in the board - 1. 
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
 	public static int count(int[][] board, int i, int j) {
+		// #feedback - try to think how you can reduce some lines of code in these functions, to make the code more readable.
+		// For example, you can just iterate, using a for loop, from i-1 to i+1, and from j-1 to j+1, and increase count if the cell is 1 (and it's not the current cell).
 		int count = 0;
+		// #feedback - it is usually better to use for loop in these case to avoid these multiple "if"s, since it's easier to forget a cell or have the wrong row/col.
 		if ( j == 1){
 			if (board[i][j + 1] == 1){
 				count++;
 			}
+			// #feedback - this check is not needed, it should behave as any other row.
 		} else if ( j == board[i].length - 1){
 			if (board[i][j - 1] == 1){
 				count++;
@@ -160,6 +167,7 @@ public class GameOfLife {
 			end = j + 1;
 		} else if ( j == board[i].length - 1){
 			begin = j -1;
+			// #feedback - you can also check j+1, all the cells there equal 0.
 			end = j;
 		} else {
 			begin = j - 1;
